@@ -1,24 +1,27 @@
 #include "LinkedList.h"
 
-// Default Constructor
+// Default Linked list constructor
 LinkedList::LinkedList()
 {
     count = 0;
     head = nullptr;
 }
 
+// Node constructor
 LinkedList::Node::Node(int data)
 {
     this->data = data;
     this->both = nullptr;
 }
 
+// Probably the main code of the program: calculates the xor between two
+// addresses of two Nodes.
 LinkedList::Node *LinkedList::xorCalc(Node *a, Node *b)
 {
     return (Node*) ((uintptr_t) a ^ (uintptr_t) b);
 }
 
-
+// Adds a node at either the head or the tail
 void LinkedList::add(int data)
 {
     Node *temp = head;
@@ -29,9 +32,6 @@ void LinkedList::add(int data)
     }
     else
     {
-        // tail->next = new Node();
-        // tail->next->prev = tail;
-        // tail = tail->next;
         newPtr->both = xorCalc(tail, nullptr);
         tail->both = xorCalc(newPtr, xorCalc(tail->both, nullptr));
         tail = newPtr;
@@ -40,9 +40,22 @@ void LinkedList::add(int data)
     count++;
 }
 
+// Retuns a node at an index
 LinkedList::Node *LinkedList::get(int index)
 {
+    Node *curr = head;
+    Node *prev = nullptr, *next = nullptr;
 
+    if (index > count)
+        throw -1;
+
+    for (int i = 0; i < index; i++)
+    {
+        next = xorCalc(prev, curr->both);
+        prev = curr;
+        curr = next;
+    }
+    return curr;
 }
 
 int LinkedList::getCount()
@@ -65,7 +78,22 @@ void LinkedList::printList()
     }
 }
 
-// Goes through list iteratively and deletes all of the nodes 
+const int &operator[](unsigned int index) const
+{
+
+}
+
+int & operator[](unsigned int index)
+{
+
+}
+
+LinkedList &operator=(const LinkedList &rhs)
+{
+    
+}
+
+// Goes through list iteratively and deletes all of the nodes
 LinkedList::~LinkedList()
 {
     Node *curr = head;

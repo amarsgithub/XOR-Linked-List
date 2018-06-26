@@ -36,16 +36,13 @@ public:
     // Print list:
     void printList();
 
-
     // Destructor
     ~LinkedList();
 
 private:
-
     Node *head;
     Node *tail;
     int count;
     void Set(const LinkedList &other);
     Node *xorCalc(Node *a, Node *b);
-
 };

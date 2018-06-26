@@ -10,5 +10,12 @@ int main(void)
 
     myList.printList();
 
+    // LinkedList::Node *someNode = myList.get(2);
+    //
+    // cout << someNode->data << endl;
+
+    
+
+
     return 0;
 }
