@@ -40,24 +40,6 @@ void LinkedList::add(int data)
     count++;
 }
 
-// Retuns a node at an index
-LinkedList::Node *LinkedList::get(int index)
-{
-    Node *curr = head;
-    Node *prev = nullptr, *next = nullptr;
-
-    if (index > count)
-        throw -1;
-
-    for (int i = 0; i < index; i++)
-    {
-        next = xorCalc(prev, curr->both);
-        prev = curr;
-        curr = next;
-    }
-    return curr;
-}
-
 int LinkedList::getCount()
 {
     return count;
@@ -78,19 +60,61 @@ void LinkedList::printList()
     }
 }
 
+// Retuns a node at an index
+LinkedList::Node *LinkedList::get(int index)
+{
+    Node *curr = head;
+    Node *prev = nullptr, *next = nullptr;
+
+    if (index > count)
+        throw -1;
+
+    for (int i = 0; i < index; i++)
+    {
+        next = xorCalc(prev, curr->both);
+        prev = curr;
+        curr = next;
+    }
+    return curr;
+}
+
 const int &LinkedList::operator[](unsigned int index) const
 {
+    Node *curr = head;
+    Node *prev = nullptr, *next = nullptr;
 
+    if (index > count)
+        throw -1;
+
+    for (int i = 0; i < index; i++)
+    {
+        next = xorCalc(prev, curr->both);
+        prev = curr;
+        curr = next;
+    }
+    return curr;
 }
 
 int & LinkedList::operator[](unsigned int index)
 {
+    Node *curr = head;
+    Node *prev = nullptr, *next = nullptr;
 
+    if (index > count)
+        throw -1;
+
+    for (int i = 0; i < index; i++)
+    {
+        next = xorCalc(prev, curr->both);
+        prev = curr;
+        curr = next;
+    }
+    return curr->data;
 }
 
 LinkedList &LinkedList::operator=(const LinkedList &rhs)
 {
-
+    
 }
 
 // Goes through list iteratively and deletes all of the nodes
