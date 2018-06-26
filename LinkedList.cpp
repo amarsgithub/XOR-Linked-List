@@ -57,6 +57,21 @@ void LinkedList::printList()
         next = xorCalc(prev, curr->both);
         prev = curr;
         curr = next;
+
+    }
+}
+
+void LinkedList::printListReverse()
+{
+    Node *curr = tail;
+    Node *prev = nullptr, *next = nullptr;
+
+    while (curr != nullptr)
+    {
+        cout << curr->data << endl;
+        next = xorCalc(prev, curr->both);
+        prev = curr;
+        curr = next;
     }
 }
 
@@ -78,22 +93,22 @@ LinkedList::Node *LinkedList::get(int index)
     return curr;
 }
 
-const int &LinkedList::operator[](unsigned int index) const
-{
-    Node *curr = head;
-    Node *prev = nullptr, *next = nullptr;
-
-    if (index > count)
-        throw -1;
-
-    for (int i = 0; i < index; i++)
-    {
-        next = xorCalc(prev, curr->both);
-        prev = curr;
-        curr = next;
-    }
-    return curr;
-}
+// const int &LinkedList::operator[](unsigned int index) const
+// {
+//     Node *curr = head;
+//     Node *prev = nullptr, *next = nullptr;
+//
+//     if (index > count)
+//         throw -1;
+//
+//     for (int i = 0; i < index; i++)
+//     {
+//         next = xorCalc(prev, curr->both);
+//         prev = curr;
+//         curr = next;
+//     }
+//     return curr->data;
+// }
 
 int & LinkedList::operator[](unsigned int index)
 {
@@ -112,10 +127,7 @@ int & LinkedList::operator[](unsigned int index)
     return curr->data;
 }
 
-LinkedList &LinkedList::operator=(const LinkedList &rhs)
-{
-    
-}
+
 
 // Goes through list iteratively and deletes all of the nodes
 LinkedList::~LinkedList()

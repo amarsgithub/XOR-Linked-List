@@ -9,6 +9,8 @@ int main(void)
     myList.add(16);
     myList.add(17);
 
+    // Forward print:
+    cout << "Print list forward:\n";
     myList.printList();
 
     // Spec 2 asked by Google: access an element at an index
@@ -20,7 +22,9 @@ int main(void)
     //     cout << "Error in accessing element." << endl;
     // }
 
-
+    // Printing list in reverse:
+    cout << "Print list reverse:\n";
+    myList.printListReverse();
 
 
     return 0;

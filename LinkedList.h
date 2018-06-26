@@ -35,6 +35,7 @@ public:
 
     // Print list:
     void printList();
+    void printListReverse();
 
     // Destructor
     ~LinkedList();
