@@ -26,11 +26,15 @@ public:
     LinkedList();
 
     // Copy Constructor
+    LinkedList(const LinkedList &rhs);
 
     // Operator overloads:
     const int &operator[](unsigned int index) const;
     int & operator[](unsigned int index);
     LinkedList &operator=(const LinkedList &rhs);
+
+    // Print list:
+    void printList();
 
 
     // Destructor
@@ -42,5 +46,6 @@ private:
     Node *tail;
     int count;
     void Set(const LinkedList &other);
+    Node *xorCalc(Node *a, Node *b);
 
 };
