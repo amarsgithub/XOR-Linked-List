@@ -78,19 +78,19 @@ void LinkedList::printList()
     }
 }
 
-const int &operator[](unsigned int index) const
+const int &LinkedList::operator[](unsigned int index) const
 {
 
 }
 
-int & operator[](unsigned int index)
+int & LinkedList::operator[](unsigned int index)
 {
 
 }
 
-LinkedList &operator=(const LinkedList &rhs)
+LinkedList &LinkedList::operator=(const LinkedList &rhs)
 {
-    
+
 }
 
 // Goes through list iteratively and deletes all of the nodes
