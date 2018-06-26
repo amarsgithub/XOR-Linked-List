@@ -93,23 +93,6 @@ LinkedList::Node *LinkedList::get(int index)
     return curr;
 }
 
-// const int &LinkedList::operator[](unsigned int index) const
-// {
-//     Node *curr = head;
-//     Node *prev = nullptr, *next = nullptr;
-//
-//     if (index > count)
-//         throw -1;
-//
-//     for (int i = 0; i < index; i++)
-//     {
-//         next = xorCalc(prev, curr->both);
-//         prev = curr;
-//         curr = next;
-//     }
-//     return curr->data;
-// }
-
 int & LinkedList::operator[](unsigned int index)
 {
     Node *curr = head;
